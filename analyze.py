@@ -11,20 +11,6 @@ MODEL = "groq/llama-3.3-70b-versatile"
 API_KEY_ENV_VAR = "GROQ_API_KEY"
 
 
-def _load_api_key() -> str:
-    """
-    Load the API key from an environment variable.
-
-    This avoids hard-coding credentials in source code and makes it
-    easy to rotate or change keys without touching the code.
-    """
-    api_key = os.getenv(API_KEY_ENV_VAR)
-    if not api_key:
-        raise RuntimeError(
-            f"Missing API key. Please set the {API_KEY_ENV_VAR} environment variable."
-        )
-    return api_key
-
 
 def _validate_itinerary_schema(data: Dict[str, Any]) -> Dict[str, Any]:
     """
